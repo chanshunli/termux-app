@@ -19,8 +19,10 @@ allprojects {
         jcenter()
         maven {
             url "https://maven.google.com"
+            //url "https://clojars.org/repo"
         }
-        clojars { url "https://clojars.org/repo" }
+        //clojars { url "https://clojars.org/repo" }
+        maven { url "https://clojars.org/repo" }
     }
 }
 

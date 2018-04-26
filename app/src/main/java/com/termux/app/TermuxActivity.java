@@ -78,6 +78,9 @@ import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import clojure.lang.IFn;
+import clojure.lang.RT;
+
 /**
  * A terminal emulator activity.
  * <p/>

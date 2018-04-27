@@ -28,6 +28,11 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.lang.reflect.Method;
+
+import static android.content.ContentValues.TAG;
+
+
 /**
  * A service holding a list of terminal sessions, {@link #mTerminalSessions}, showing a foreground notification while
  * running so that it is not terminated. The user interacts with the session through {@link TermuxActivity}, but this
@@ -168,6 +173,15 @@ public final class TermuxService extends Service implements SessionChangedCallba
 
     @Override
     public void onCreate() {
+        try {
+            Class dalvikCLclass = Class.forName("clojure.lang.DalvikDynamicClassLoader");
+            Method setContext = dalvikCLclass.getMethod("setContext", Context.class);
+            setContext.invoke(null, this);
+        } catch (ClassNotFoundException e) {
+            Log.i(TAG, "DalvikDynamicClassLoader is not found, probably Skummet is used.");
+        } catch (Exception e) {
+            Log.e(TAG, "setContext method not found, check if your Clojure dependency is correct.");
+        }
         setupNotificationChannel();
         startForeground(NOTIFICATION_ID, buildNotification());
     }

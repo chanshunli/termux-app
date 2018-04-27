@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: "com.github.anolivetree.clojure-android"
+apply plugin: "com.dorongold.task-tree"
 
 android {
     compileSdkVersion 27
@@ -36,19 +38,13 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
 
+    implementation "org.clojure-android:clojure:1.7.0-r4"
     compile "org.clojure-android:clojure:1.7.0-r4"
-
-    //compile "http-kit:http-kit:2.2.0"
-
-    //compile 'org.clojure:tools.nrepl:0.2.10', {
-    //    // nrepl depends on clojure 1.2.0
-    //    exclude group: 'org.clojure', module: 'clojure'
-    //}
 
 }
 
-//clojure {
-//    aotCompile = true
-//}
+clojure {
+    aotCompile = true
+}
 
 

@@ -38,12 +38,12 @@ dependencies {
 
     compile "org.clojure-android:clojure:1.7.0-r4"
 
-    compile "http-kit:http-kit:2.2.0"
+    // compile "http-kit:http-kit:2.2.0"
 
-    compile 'org.clojure:tools.nrepl:0.2.10', {
-        // nrepl depends on clojure 1.2.0
-        exclude group: 'org.clojure', module: 'clojure'
-    }
+    //compile 'org.clojure:tools.nrepl:0.2.10', {
+    //    // nrepl depends on clojure 1.2.0
+    //    exclude group: 'org.clojure', module: 'clojure'
+    //}
 
 }
 

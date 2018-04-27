@@ -173,15 +173,15 @@ public final class TermuxService extends Service implements SessionChangedCallba
 
     @Override
     public void onCreate() {
-        try {
-            Class dalvikCLclass = Class.forName("clojure.lang.DalvikDynamicClassLoader");
-            Method setContext = dalvikCLclass.getMethod("setContext", Context.class);
-            setContext.invoke(null, this);
-        } catch (ClassNotFoundException e) {
-            Log.i(TAG, "DalvikDynamicClassLoader is not found, probably Skummet is used.");
-        } catch (Exception e) {
-            Log.e(TAG, "setContext method not found, check if your Clojure dependency is correct.");
-        }
+        //try {
+            //Class dalvikCLclass = Class.forName("clojure.lang.DalvikDynamicClassLoader");
+            //Method setContext = dalvikCLclass.getMethod("setContext", Context.class);
+            //setContext.invoke(null, this);
+        //} catch (ClassNotFoundException e) {
+        //    Log.i(TAG, "DalvikDynamicClassLoader is not found, probably Skummet is used.");
+        //} catch (Exception e) {
+        //    Log.e(TAG, "setContext method not found, check if your Clojure dependency is correct.");
+        //}
         setupNotificationChannel();
         startForeground(NOTIFICATION_ID, buildNotification());
     }
